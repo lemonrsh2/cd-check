@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+
+
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <img src="assets/sm_logo.png" alt="">
+                </div>
+                <div class="col-4">
+
+                </div>
+                <div class="col-4">
+                    <div class="button-group d-flex justify-content-end align-items-center">
+                        <a class="active" href="index.html">Conversions</a>
+                        <a href="index.html">Summary</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="https://cors-anywhere.herokuapp.com">Get Accesss</a>
+    <button onclick="randomAPI()">RANDOM</button>
+
+
+    <table class="table table-striped" id="cursos" style="width:100%">
+        <thead>
+            <tr>
+                <td>conversion_date</td>
+                <td>conversions ID</td>
+                <td>transaction_id</td>
+                <td>smartlink_name</td>
+                <td>smartlink_id</td>
+                <td>price_usd</td>
+                <td>price_currency</td>
+                <td>order_total</td>
+                <td>order_total_usd</td>
+                <td>event_name</td>
+                <td>subid_1</td>
+                <td>country</td>
+                <td>device</td>
+                <td>disposition</td>
+                <td>click_ip</td>
+            </tr>
+        </thead>
+        <tbody id="table_body">
+            <!-- ajax data will generate here  -->
+        </tbody>
+    </table>
+    <p id="demo"></p>
+    <!-- Optional JavaScript -->
+    <script>
+        var dataArray = [];
+        var row1 = "row";
+        function randomAPI() {
+            $.ajax({
+                url: 'https://cors-anywhere.herokuapp.com/https://partners.clickdealer.com/affiliates/api/1/reports.asmx/Conversions?api_key=084ed31e437d0f124e6548e9f96117&affiliate_id=145071&start_date=08%2F01%2F2021%2000%3A00%3A00&end_date=08%2F27%2F2021%2000%3A00%3A00&include_tests=True&row_limit=100¤cy_id=All&disposition_type=All&conversion_type=All&update_filter=False&test=swagger_affiliate_portal',
+                dataType: 'json',
+                success: function (data) {
+                    // console.log(data);
+                    // console.log(typeof (data));
+                    dataArray = data.conversions;
+                    // console.log(dataArray);
+                    // buildTable(dataArray);
+
+                    convTable(dataArray);
+                    // generateTable(table, data.conversions);
+
+
+                }
+            });
+
+
+        }
+
+        function convTable(conv) {
+
+            console.log(dataArray);
+            var table = document.getElementById('table_body')
+            for (var i = 0; i < conv.length; i++) {
+                var row = `<tr> 
+                    <td>${dataArray[i].conversion_date}</td>
+                    <td>${dataArray[i].conversion_id}</td>
+                    <td>${dataArray[i].transaction_id}</td>
+                    <td>${dataArray[i].smartlink_name}</td>
+                    <td>${dataArray[i].smartlink_id}</td>
+                    <td>${dataArray[i].price_usd}</td>
+                    <td>${dataArray[i].price_currency}</td>
+                    <td>${dataArray[i].order_total}</td>
+                    <td>${dataArray[i].order_total_usd}</td>
+                    <td>${dataArray[i].event_name}</td>
+                    <td>${dataArray[i].subid_1}</td>
+                    <td>${dataArray[i].country}</td>
+                    <td>${dataArray[i].device}</td>
+                    <td>${dataArray[i].disposition}</td>
+                    <td>${dataArray[i].click_ip}</td>
+                    </tr>`
+                table.innerHTML += row;
+                console.log(dataArray[i].subid_1);
+                // https://www.valentinog.com/blog/html-table/
+            }
+
+        }
+
+
+
+        function buildTable(dataCollection) {
+            // console.log("DATA OBJECT IS "+ dataCollection);
+            $.each(dataCollection, function (index) {
+                $("table#cursos").append("<div>");
+                // document.createElement("tr");
+                $.each(dataCollection[index], function (key, value) {
+                    $("table#cursos").append("<td>" + value + "</td>");
+                });
+                $("table#cursos").append("</tr>");
+            });
+        }
+
+
+        function load() {
+            console.log("LOADED");
+
+        }
+
+        // window.onload = load;
+        // window.onload = xmlMethod;
+        // window.onload = 
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+
+CURL---
+curl -X GET "https://partners.clickdealer.com/affiliates/api/1/reports.asmx/Conversions?api_key=084ed31e437d0f124e6548e9f96117&affiliate_id=145071&start_date=08%2F01%2F2021%2000%3A00%3A00&end_date=08%2F27%2F2021%2000%3A00%3A00&include_tests=True&row_limit=100&currency_id=All&disposition_type=All&conversion_type=All&update_filter=False&test=swagger_affiliate_portal" -H  "accept: application/json"
+
+HTTP----
+https://partners.clickdealer.com/affiliates/api/1/reports.asmx/Conversions?api_key=084ed31e437d0f124e6548e9f96117&affiliate_id=145071&start_date=08%2F01%2F2021%2000%3A00%3A00&end_date=08%2F27%2F2021%2000%3A00%3A00&include_tests=True&row_limit=100&currency_id=All&disposition_type=All&conversion_type=All&update_filter=False&test=swagger_affiliate_portal
+
