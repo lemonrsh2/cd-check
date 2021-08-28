@@ -17,6 +17,10 @@ table tr {
   font-size: 11px;
 }
 
+.table{
+  width: 100%;
+  overflow-x: scroll;
+}
 @media screen and (min-width: 1200px) {
   /* write code here */
 }
