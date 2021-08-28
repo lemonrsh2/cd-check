@@ -1,0 +1,42 @@
+.header {
+  background: #094c8f;
+  padding: 20px 0px;
+}
+
+.button-group a {
+  margin: 0px 10px;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+}
+.button-group .active {
+  background: #0b5eb1;
+}
+table tr {
+  border: 1px solid black;
+  font-size: 11px;
+}
+
+@media screen and (min-width: 1200px) {
+  /* write code here */
+}
+
+/* Portrait tablets 768px and above */
+@media screen and (min-width: 768px) and (max-width: 979px) {
+  /* write code here */
+}
+
+/* Phones to tablets 767px and below */
+@media screen and (max-width: 767px) {
+  /* write code here */
+}
+
+/* Phones 480px and below */
+@media screen and (max-width: 480px) {
+  /* write code here */
+  .button-group a {
+    margin: 0px 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
