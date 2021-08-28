@@ -42,31 +42,33 @@
     </div>
 
 
+    <div class="container-fluid table-responsive">
+        <table class="table-responsive table table-striped" id="cursos" >
+            <thead>
+                <tr>
+                    <td>conversion_date</td>
+                    <td>conversions ID</td>
+                    <td>transaction_id</td>
+                    <td>smartlink_name</td>
+                    <td>smartlink_id</td>
+                    <td>price_usd</td>
+                    <td>price_currency</td>
+                    <td>order_total</td>
+                    <td>order_total_usd</td>
+                    <td>event_name</td>
+                    <td>subid_1</td>
+                    <td>country</td>
+                    <td>device</td>
+                    <td>disposition</td>
+                    <td>click_ip</td>
+                </tr>
+            </thead>
+            <tbody id="table_body">
+                <!-- ajax data will generate here  -->
+            </tbody>
+        </table>
+    </div>
 
-    <table class="table table-striped" id="cursos" style="width:100%">
-        <thead>
-            <tr>
-                <td>conversion_date</td>
-                <td>conversions ID</td>
-                <td>transaction_id</td>
-                <td>smartlink_name</td>
-                <td>smartlink_id</td>
-                <td>price_usd</td>
-                <td>price_currency</td>
-                <td>order_total</td>
-                <td>order_total_usd</td>
-                <td>event_name</td>
-                <td>subid_1</td>
-                <td>country</td>
-                <td>device</td>
-                <td>disposition</td>
-                <td>click_ip</td>
-            </tr>
-        </thead>
-        <tbody id="table_body">
-            <!-- ajax data will generate here  -->
-        </tbody>
-    </table>
     <p id="demo"></p>
     <!-- Optional JavaScript -->
     <script>
