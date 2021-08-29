@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" type="text/javascript"
+        charset="utf-8"></script>
     <link rel="stylesheet" href="assets/bootstrap.min.css">
     <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -34,16 +36,28 @@
             </div>
         </div>
     </div>
-    <div class="summary">
-        <div class="d-flex justify-content-center align-items-center p-3">
-            <a class="btn btn-warning m-2" href="https://cors-anywhere.herokuapp.com" target="_blank">Get Accesss</a>
-            <button class="btn btn-primary m-2" onclick="randomAPI()">Reload</button>
+    <div class="container summary">
+        <div class="row">
+            <div class="col-6">
+                <div class="d-flex justify-content-start  align-items-center p-3">
+                    <a class="btn btn-warning m-2" href="https://cors-anywhere.herokuapp.com" target="_blank">Get
+                        Accesss</a>
+                    <button class="btn btn-primary m-2" onclick="randomAPI()">Reload</button>
+                </div>
+            </div>
+            <div class="col-6 d-flex justify-content-end align-items-center p-3">
+                    <div class="data"><span>Time Interval: </span> <span id="showTimeInterval"></span></div>
+                    <!-- <div class="data"><span>Start Date: </span> <span id="showStartDate"></span></div>
+                    <div class="data"><span>End Date: </span> <span id="showEndDate"></span></div>
+                    <div class="data"><span>FOUND: </span> <span id="showTotalFound"></span></div> -->
+            </div>
         </div>
+
     </div>
 
 
     <div class="container-fluid table-responsive">
-        <table class="table-responsive table table-striped" id="cursos" >
+        <table class="table-responsive table table-striped" id="cursos">
             <thead>
                 <tr>
                     <td>conversion_date</td>
@@ -69,85 +83,10 @@
         </table>
     </div>
 
-    <p id="demo"></p>
+
     <!-- Optional JavaScript -->
+    <script src="app.js"></script>
     <script>
-        var dataArray = [];
-        var row1 = "row";
-        function randomAPI() {
-            $.ajax({
-                url: 'https://cors-anywhere.herokuapp.com/https://partners.clickdealer.com/affiliates/api/1/reports.asmx/Conversions?api_key=084ed31e437d0f124e6548e9f96117&affiliate_id=145071&start_date=08%2F01%2F2021%2000%3A00%3A00&end_date=08%2F27%2F2021%2000%3A00%3A00&include_tests=True&row_limit=100¤cy_id=All&disposition_type=All&conversion_type=All&update_filter=False&test=swagger_affiliate_portal',
-                dataType: 'json',
-                success: function (data) {
-                    // console.log(data);
-                    // console.log(typeof (data));
-                    dataArray = data.conversions;
-                    // console.log(dataArray);
-                    // buildTable(dataArray);
-
-                    convTable(dataArray);
-                    // generateTable(table, data.conversions);
-
-
-                }
-            });
-
-
-        }
-
-        function convTable(conv) {
-
-            console.log(dataArray);
-            var table = document.getElementById('table_body')
-            for (var i = 0; i < conv.length; i++) {
-                var row = `<tr> 
-                    <td>${dataArray[i].conversion_date}</td>
-                    <td>${dataArray[i].conversion_id}</td>
-                    <td>${dataArray[i].transaction_id}</td>
-                    <td>${dataArray[i].smartlink_name}</td>
-                    <td>${dataArray[i].smartlink_id}</td>
-                    <td>${dataArray[i].price_usd}</td>
-                    <td>${dataArray[i].price_currency}</td>
-                    <td>${dataArray[i].order_total}</td>
-                    <td>${dataArray[i].order_total_usd}</td>
-                    <td>${dataArray[i].event_name}</td>
-                    <td>${dataArray[i].subid_1}</td>
-                    <td>${dataArray[i].country}</td>
-                    <td>${dataArray[i].device}</td>
-                    <td>${dataArray[i].disposition}</td>
-                    <td>${dataArray[i].click_ip}</td>
-                    </tr>`
-                table.innerHTML += row;
-                console.log(dataArray[i].subid_1);
-                // https://www.valentinog.com/blog/html-table/
-            }
-
-        }
-
-
-
-        function buildTable(dataCollection) {
-            // console.log("DATA OBJECT IS "+ dataCollection);
-            $.each(dataCollection, function (index) {
-                $("table#cursos").append("<div>");
-                // document.createElement("tr");
-                $.each(dataCollection[index], function (key, value) {
-                    $("table#cursos").append("<td>" + value + "</td>");
-                });
-                $("table#cursos").append("</tr>");
-            });
-        }
-
-
-        function load() {
-            console.log("LOADED");
-
-        }
-
-        // window.onload = load;
-        // window.onload = xmlMethod;
-        // window.onload = 
-
 
     </script>
 
